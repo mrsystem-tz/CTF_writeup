@@ -1,0 +1,11 @@
+To solve the login challenge, inspect the client-side JavaScript in /index.js on the site (https://cylabacademy.net or via the page source).
+
+Steps to Solve
+
+1. View the source code: Open the login page and view its HTML source or navigate directly to /index.js.
+2. Read the validation logic: The script encodes your username and password inputs with btoa() (Base64), removes = padding, and checks them against hardcoded strings:
+	• Username check: "YWRtaW4" (which Base64-decodes to admin)
+	• Password check: "cGljb0NURns1M3J2M3JfNTNydjNyXzUzcnYzcl81M3J2M3JfNTNydjNyfQ"
+3. Decode the password: Base64-decode the password string (for example, using atob("cGljb0NURns1M3J2M3JfNTNydjNyXzUzcnYzcl81M3J2M3JfNTNydjNyfQ") in the browser console or echo "..." | base64 -d in a terminal) to get picoCTF{53rv3r_53rv3r_53rv3r_53rv3r_53rv3r}.
+4. Log in: Enter admin as the username and the decoded string as the password on the form to trigger the alert with the flag.
+
